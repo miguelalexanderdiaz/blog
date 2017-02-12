@@ -28,7 +28,7 @@ facebook_username: Miguel.Alexander.Diaz
 
 # Build settings
 markdown: kramdown
-theme: modernist
+theme: jekyll-theme-modernist
 gems:
   - jekyll-feed
 exclude:
