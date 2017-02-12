@@ -19,6 +19,9 @@ description: > # this means to ignore newlines until "baseurl:"
   This blog is intented to serve as a personal memory repository.
   It will be focused in Data Science topics such as Machine Learning, Deep Learning and
   technologies used in the industry to tacke Big Data problems.
+  
+  
+  example
  
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
