@@ -420,7 +420,7 @@ ___
 
 Outhere exist a lot of models that can solve our problem, nowadays the state of the art in image classification are **Convolutional Neural Networks** since the famous **Alex Krizhevsky** paper of 2012 make a major breakthrough, in that paper introduce the network known now as [AlexNet](http://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf). Since then another famous nets have appeared like the Google's [Inception](https://arxiv.org/pdf/1512.00567.pdf), [VGG](https://arxiv.org/pdf/1409.1556.pdf), and [ResNet](https://arxiv.org/pdf/1512.03385.pdf) all of them based in the same principles but with some modiffications here and there.
 
-A network that have a really good balance between accuracy and model size is **ResNet50** that network have the characteristic that instead of learn a function $f(x)$ that maps the images as input $x$, learns a function of the form $f(x)+x$ that means the input can jump to deep layers of the network allowing faster training, improving the accuracy of the model, and fight the problem of devanishing gradient that usually happen with very deep neural nets.
+A network that have a really good balance between accuracy and model size is **ResNet50** that network have the characteristic that instead of learn a function $$f(x)$$ that maps the images as input $$x$$, learns a function of the form $$f(x)+x$$ that means the input can jump to deep layers of the network allowing faster training, improving the accuracy of the model, and fight the problem of devanishing gradient that usually happen with very deep neural nets.
 
 The image below shows a basic building block of the **ResNet** network.
 
@@ -435,12 +435,12 @@ The image below shows a basic building block of the **ResNet** network.
 
 #### 4.1.2 Classifier Rationale
 
-On top of the ConvNet I'll use a softmax classifier, this is just a dense layer that maps the feature vector of the hidden layer to a probability distribution between the classes, it's relvant to remark as we're doing a binary classifier the softmax classifier it's just a sigmoid function $h_\theta$, the general schema is represented in the following image:
+On top of the ConvNet I'll use a softmax classifier, this is just a dense layer that maps the feature vector of the hidden layer to a probability distribution between the classes, it's relvant to remark as we're doing a binary classifier the softmax classifier it's just a sigmoid function $$h_\theta$$, the general schema is represented in the following image:
 
 ![Image of Resnet50](https://corpocrat.com/wp-content/uploads/2014/10/nn-600x426.png)
 **Sigmoid Function**
 $$h_\theta = \frac{1}{e^{-z}}$$
-where $z$ is the vector of the hidden layer.
+where $$z$$ is the vector of the hidden layer.
 
 #### 4.1.3 Loss Function Rationale
 
@@ -449,13 +449,13 @@ Once the model and classifier are selected just need to adopt a loss function th
 $$-\frac{1}{N}\sum^N_{i=1}y_ilog(h_\theta(x_i))+(1-y_i)log(1-h_\theta(x_i))$$
 
 where
-* $N$ is the total number of training examples 
-* $y_i$ is the real class of the example $i$-th
-* $h_\theta(x_i)$ is the output of the classifier $h$ given the input image $x_i$
+* $$N$$ is the total number of training examples 
+* $$y_i$$ is the real class of the example $$i$$-th
+* $$h_\theta(x_i)$$ is the output of the classifier $$h$$ given the input image $$x_i$$
 
-therefore if the actual label of the example $x_i$ is 1 (is showing their teeths) is translated as $y_i=1$ and the model predicts wrongly that label for instance predict 0 (is not showing their teeths) is translated as $h_\theta(x_i)=0$ so, the error will be calculated only with the term of the left of the plus sign.
+therefore if the actual label of the example $$x_i$$ is 1 (is showing their teeths) is translated as $$y_i=1$$ and the model predicts wrongly that label for instance predict 0 (is not showing their teeths) is translated as $$h_\theta(x_i)=0$$ so, the error will be calculated only with the term of the left of the plus sign.
 
-The procedure is simmilar when $y_i=0$ but in that case the error will be calculated with the right term of the plus sign.
+The procedure is simmilar when $$y_i=0$$ but in that case the error will be calculated with the right term of the plus sign.
 
 > In other words binary cross entropy just measure the error of each classification and perform an average of the errors
 
